@@ -1,0 +1,50 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>REGISTRO DE UNA NUEVA ACTIVIDAD</ion-title>
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="dismissModal()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button color="primary" [disabled]="!createContactForm.valid" (click)="submitForm()">
+        <ion-icon name="checkmark-done-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-thumbnail class="user-image">
+    <img src="/assets/es.png">
+  </ion-thumbnail>
+
+  <ion-row class="add-photo-wrapper">
+    <ion-button fill="clear">REGISTRO DE LA ACTIVIDAD</ion-button>
+  </ion-row>
+
+  <form [formGroup]="createContactForm" #createForm="ngForm" (ngSubmit)="createContact(createContactForm.value)">
+    <ion-list>
+      <ion-item>
+        <ion-input placeholder="Actividad" inputMode="text" clearInput="true" formControlName="firstName" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Lapso de Tiempo" inputMode="text" clearInput="true" formControlName="lastName" required></ion-input>
+      </ion-item>
+      <ion-datetime placeholder="Fecha de Entrega" locale="es-ES"></ion-datetime>
+      <ion-item>
+        <ion-input placeholder="Materia" inputMode="tel" clearInput="true" formControlName="phone" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Prioridad</ion-label>
+        <ion-select placeholder="Seleccione una" formControlName="category">
+          <ion-select-option value="Alta">Alta</ion-select-option>
+          <ion-select-option value="Media">Media</ion-select-option>
+          <ion-select-option value="Baja">Bja</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>
